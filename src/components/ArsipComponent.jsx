@@ -20,8 +20,9 @@ const ArsipComponent = () => {
 
   return (
     <div className="flex flex-col items-center justify-center sm:px-0 px-2">
-      <div className="mb-4 flex items-center gap-2">
-        <input type="text" className="border-slate-600 border-2 rounded md:w-96 w-64 h-10 ps-2" placeholder="Search Items..." onChange={(e) => setQuery(e.target.value)} />
+      <div className="mb-4">
+        <input type="text" className="border-slate-600 border-2 rounded md:w-96 w-72 h-10 ps-2" placeholder="Search Items..." onChange={(e) => setQuery(e.target.value)} />
+        <p className="text-sm text-slate-400">*huruf kecil semua</p>
       </div>
       {semuaItems.length === 0 ? (
         <p className="font-bold">Dokumen Tidak Ditemukan!.</p>
@@ -30,28 +31,28 @@ const ArsipComponent = () => {
           <table>
             <tbody>
               <tr>
-                <th className="pt-4 pb-2 px-4 border-b-2 border-black">No</th>
-                <th className="pt-4 pb-2 px-4 border-b-2 border-black">Format</th>
-                <th className="pt-4 pb-2 px-4 border-b-2 border-black">Dokumen</th>
+                <th className="md:text-base text-sm pt-4 pb-2 md:px-4 px-2 border-b-2 border-black">No</th>
+                <th className="md:text-base text-sm pt-4 pb-2 md:px-4 px-2 border-b-2 border-black">Format</th>
+                <th className="md:text-base text-sm pt-4 pb-2 md:px-4 px-2 border-b-2 border-black">Dokumen</th>
                 <th className="hidden"></th>
-                <th className="pt-4 pb-2 border-b-2 border-black">Fungsi</th>
+                <th className="md:text-base text-sm pt-4 pb-2 border-b-2 border-black">Fungsi</th>
               </tr>
               {semuaItems.map((data, index) => {
                 return (
                   <tr key={data.id}>
-                    <td className="px-4 pt-6">
+                    <td className="md:px-4 px-2 pt-6">
                       <p className="font-bold text-center">{index + 1}</p>
                     </td>
-                    <td className="flex justify-center px-4 pt-6">
-                      <img src={data.image} alt="logo" className="w-10" />
+                    <td className="flex justify-center md:px-4 px-2 pt-6">
+                      <img src={data.image} alt="logo" className="md:w-10 w-9" />
                     </td>
-                    <td className="px-4 pt-6">
-                      <p>{data.nama}</p>
+                    <td className="md:px-4 px-2 pt-6">
+                      <p className="font-bold md:text-base text-sm">{data.nama}</p>
                     </td>
                     <td className="hidden">
                       <p>{data.path}</p>
                     </td>
-                    <td className="px-4 pt-6">
+                    <td className="md:px-4 px-2 pt-6">
                       <a href={data.link} target="_blank" className="bg-sky-600 text-white py-2 px-5 rounded" rel="noreferrer">
                         Buka
                       </a>
